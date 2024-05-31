@@ -15,8 +15,6 @@ module.exports = {
             description: !req.body.description
         };
 
-        console.log(errors);
-
         if (Object.values(errors).includes(true)) {
             res.render('create', { movie: req.body, errors });
             return;
@@ -24,6 +22,6 @@ module.exports = {
 
         const result = await createMovie(req.body);
 
-        res.redirect('/details/' + result.id);
+        res.redirect('/details/' + result._id);
     }
 };
